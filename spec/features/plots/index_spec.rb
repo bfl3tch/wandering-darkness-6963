@@ -44,6 +44,7 @@ RSpec.describe 'The plots index page' do
   end
 
   it 'removes the plant from the plot without deleting the plant entirely' do
+    expect(page).to have_content(@plant1.name)
     click_on "Remove #{@plant1.name}"
 
     expect(current_path).to eq(plots_path)
@@ -53,6 +54,9 @@ RSpec.describe 'The plots index page' do
     click_on "Remove #{@plant2.name}"
     expect(page).to_not have_content(@plant2.name)
     expect(page).to have_content(@plant3.name)
+
+    expect(@plant1.nil?).to be(false)
+    expect(@plant2.nil?).to be(false)
 
   end
 end
