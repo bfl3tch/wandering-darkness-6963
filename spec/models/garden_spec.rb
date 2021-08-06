@@ -36,7 +36,7 @@ RSpec.describe Garden do
         expect(@garden1.garden_plants).to eq(expected)
       end
 
-      it 'organizes the plants by the number of plants that appear in any of this gardnes plots from most to least' do
+      xit 'organizes the plants by the number of plants that appear in any of this gardnes plots from most to least' do
         @garden1 = Garden.create!(name: 'garden1', organic: true)
 
         @plot1 = @garden1.plots.create!(number: 1, size: 'large', direction: 'east')
