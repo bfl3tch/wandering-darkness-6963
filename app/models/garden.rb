@@ -7,8 +7,10 @@ class Garden < ApplicationRecord
   end
 
   def sorted_garden_plants
-    # require "pry"; binding.pry
-    plots.joins(:plants).select('count(plants.*)')
-    # SELECT * from harvests INNER JOIN plots on harvests.plot_id = plots.id INNER JOIN plants on harvests.plant_id = plants.id INNER JOIN gardens ON gardens.id = 1;
+
+    #where did I go wrong here?
+
+    # plots.joins(:plants).select('plants.*, count(plants.id) as count').order('count(plants.*) desc').where('days_to_harvest < ?', 100).pluck('plants.name')
+
   end
 end
