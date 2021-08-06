@@ -58,7 +58,7 @@ RSpec.describe Garden do
         @harvest12 = Harvest.create!(plant: @plant2, plot: @plot2)
 
         expected = [@plant3, @plant2, @plant1, @plant4]
-        expect(@garden1.garden_plants).to eq(expected)
+        expect(@garden1.sorted_garden_plants).to eq(expected)
 
       end
     end

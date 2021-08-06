@@ -1,7 +1,10 @@
+<h2>Plots</h2>
 <% @plots.each do |plot| %>
-  <h3><%= plot.number  %></h3>
+<div id="plot-<%=plot.id%>">
+  <h3>Plot Number: <%= plot.number  %></h3>
   <% plot.plants.each do |plant| %>
     <h5><%= plant.name  %></h5>
-      <%= button_to "Remove #{plant.name}", harvest_path(plot.id, plant.id), method: :delete  %></h5>
+      <%= button_to "Remove #{plant.name}", harvest_path(plot.id, plant.id), method: :delete  %>
+</div>
   <% end %>
 <% end %>

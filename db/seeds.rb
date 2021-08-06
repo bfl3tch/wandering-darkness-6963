@@ -29,3 +29,7 @@ Plant.destroy_all
 @plant5 = @plot2.plants.create!(name: 'cabbage', description: 'undeciced', days_to_harvest: 9)
 @plant6 = @plot3.plants.create!(name: 'bitter kale', description: 'nope', days_to_harvest: 9)
 @plant7 = @plot3.plants.create!(name: 'cherry tomato', description: 'delicious', days_to_harvest: 9)
+
+@harvest1 = Harvest.create!(plot: @plot2, plant: @plant1)
+@harvest1 = Harvest.create!(plot: @plot3, plant: @plant1)
+@harvest1 = Harvest.create!(plot: @plot2, plant: @plant2)
