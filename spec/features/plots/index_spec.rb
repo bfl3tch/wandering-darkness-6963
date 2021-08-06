@@ -32,4 +32,27 @@ RSpec.describe 'The plots index page' do
     expect(page).to have_content(@plant6.name)
     expect(page).to have_content(@plant7.name)
   end
+
+  it 'displays a link to remove the plant from the plot' do
+    expect(page).to have_button("Remove #{@plant1.name}")
+    expect(page).to have_button("Remove #{@plant2.name}")
+    expect(page).to have_button("Remove #{@plant3.name}")
+    expect(page).to have_button("Remove #{@plant4.name}")
+    expect(page).to have_button("Remove #{@plant5.name}")
+    expect(page).to have_button("Remove #{@plant6.name}")
+    expect(page).to have_button("Remove #{@plant7.name}")
+  end
+
+  it 'removes the plant from the plot without deleting the plant entirely' do
+    click_on "Remove #{@plant1.name}"
+
+    expect(current_path).to eq(plots_path)
+    expect(page).to_not have_content(@plant1.name)
+    expect(page).to have_content(@plant2.name)
+
+    click_on "Remove #{@plant2.name}"
+    expect(page).to_not have_content(@plant2.name)
+    expect(page).to have_content(@plant3.name)
+
+  end
 end
